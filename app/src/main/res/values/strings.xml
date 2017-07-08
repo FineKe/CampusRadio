@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">CampusRadio</string>
+    <string name="logo_name">途聆</string>
+    <string name="logo_explain"> 你想听的，这里都有</string>
+    <string name="user_name">用户名：</string>
+    <string name="user_password">密码：</string>
+    <string name="loging">登录</string>
+    <string name="new_user">新用户</string>
+    <string name="forget_password">忘记密码</string>
+
+    <string name="index">首页</string>
+    <string name="category">分类</string>
+    <string name="collection">收藏</string>
+    <string name="person">我的</string>
+</resources>
