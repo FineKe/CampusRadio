@@ -1,26 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="60dp">
+    android:layout_height="60dp"
+    tools:ignore="DisableBaselineAlignment">
     <LinearLayout
         android:id="@+id/activity_main_bottom_bar_linearLayout_index"
         android:gravity="center"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="UseCompoundDrawables">
 
         <ImageView
+            android:id="@+id/activity_main_bottom_bar_imageView_index"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@mipmap/index_pressed"
-            android:clickable="false"/>
+            android:clickable="false"
+            android:src="@mipmap/index_normal"
+            tools:ignore="ContentDescription" />
+
         <TextView
+            android:id="@+id/activity_main_bottom_bar_textView_index"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:clickable="false"
             android:text="@string/index"
-            android:textColor="@color/font_color"
-            android:clickable="false"/>
+            android:textColor="@color/font_color" />
     </LinearLayout>
 
     <LinearLayout
@@ -29,19 +36,24 @@
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="UseCompoundDrawables">
 
         <ImageView
+            android:id="@+id/activity_main_bottom_bar_imageView_category"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@mipmap/category_pressed"
-            android:clickable="false"/>
+            android:clickable="false"
+            android:src="@mipmap/category_normal"
+            tools:ignore="ContentDescription" />
+
         <TextView
+            android:id="@+id/activity_main_bottom_bar_textView_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:clickable="false"
             android:text="@string/category"
-            android:textColor="@color/font_color"
-            android:clickable="false"/>
+            android:textColor="@color/font_color" />
     </LinearLayout>
 
     <LinearLayout
@@ -50,20 +62,24 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="UseCompoundDrawables">
 
         <ImageView
+            android:id="@+id/activity_main_bottom_bar_imageView_collection"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@mipmap/collection_pressed"
-            android:clickable="false"/>
+            android:clickable="false"
+            android:src="@mipmap/collection_normal"
+            tools:ignore="ContentDescription" />
 
         <TextView
+            android:id="@+id/activity_main_bottom_bar_textView_collection"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:clickable="false"
             android:text="@string/collection"
-            android:textColor="@color/font_color"
-            android:clickable="false"/>
+            android:textColor="@color/font_color" />
     </LinearLayout>
 
     <LinearLayout
@@ -72,14 +88,18 @@
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="UseCompoundDrawables">
 
         <ImageView
+            android:id="@+id/activity_main_bottom_bar_imageView_person"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@mipmap/person_pressed"
-            android:clickable="false"/>
+            android:src="@mipmap/person_normal"
+            android:clickable="false"
+            tools:ignore="ContentDescription" />
         <TextView
+            android:id="@+id/activity_main_bottom_bar_textView_person"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/person"

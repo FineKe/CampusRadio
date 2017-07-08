@@ -6,4 +6,5 @@
     <color name="stroke">#ffa50b0b</color>
     <color name="base_white">#fff</color>
     <color name="font_color">#ffa50b0b</color>
+    <color name="main_color">#ffa50b0b</color>
 </resources>
