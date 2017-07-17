@@ -7,4 +7,5 @@
     <color name="base_white">#fff</color>
     <color name="font_color">#ffa50b0b</color>
     <color name="main_color">#ffa50b0b</color>
+    <color name="text_view_normal_color">#F0857F</color>
 </resources>

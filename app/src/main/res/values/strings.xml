@@ -15,4 +15,6 @@
 
     <string name="channel_separation">频道分类</string>
     <string name="my_collection">我的收藏</string>
+    <string name="my_account">我的账号</string>
+
 </resources>
