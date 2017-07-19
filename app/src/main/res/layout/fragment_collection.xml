@@ -8,4 +8,67 @@
   <include layout="@layout/fragment_collection_title_bar"
       android:layout_width="match_parent"
       android:layout_height="50dp"/>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="40dp"
+      android:orientation="horizontal"
+      android:background="#80343c">
+
+      <LinearLayout
+          android:gravity="center_horizontal|bottom"
+          android:layout_width="wrap_content"
+          android:layout_weight="1"
+          android:layout_height="match_parent"
+          android:orientation="vertical">
+
+          <TextView
+              android:id="@+id/fragment_collection_textView1"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="频道收藏"
+              android:textSize="18sp"
+              android:textColor="@color/base_white"/>
+
+          <ImageView
+              android:id="@+id/fragment_collection_imageView1"
+              android:layout_width="74dp"
+              android:layout_height="3dp"
+              android:background="#00ff00"/>
+
+      </LinearLayout>
+
+
+    <LinearLayout
+        android:gravity="center_horizontal|bottom"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+      <TextView
+          android:id="@+id/fragment_collection_textView2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="主播收藏"
+          android:textSize="18sp"
+          android:textColor="@color/base_white"/>
+
+      <ImageView
+          android:id="@+id/fragment_collection_imageView2"
+          android:layout_width="74dp"
+          android:layout_height="3dp"
+          android:background="#00ff00"/>
+
+    </LinearLayout>
+
+
+  </LinearLayout>
+
+  <FrameLayout
+      android:id="@+id/fragment_collection_frameLayout"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+  </FrameLayout>
 </LinearLayout>
