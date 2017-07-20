@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/base_white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <include layout="@layout/fragment_index_title_bar" android:layout_width="match_parent"
         android:layout_height="50dp"/>
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="2dp"
+        android:background="@color/stroke"
+        android:id="@+id/fragment_index_recyclerView_chinnels"
+        android:layout_width="match_parent"
+        android:layout_height="90dp">
+    </android.support.v7.widget.RecyclerView>
+
+    <android.support.v4.view.ViewPager
+        android:layout_marginTop="2dp"
+        android:id="@+id/fragment_index_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+
+    </android.support.v4.view.ViewPager>
 </LinearLayout>
