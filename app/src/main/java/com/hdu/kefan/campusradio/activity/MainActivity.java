@@ -18,7 +18,7 @@ import com.hdu.kefan.campusradio.fragment.CollectionFragment;
 import com.hdu.kefan.campusradio.fragment.IndexFragment;
 import com.hdu.kefan.campusradio.fragment.PersonFragment;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener{
     private final int textNormalColor= Color.rgb(240,133,127);
 
     private FrameLayout frameLayout;
