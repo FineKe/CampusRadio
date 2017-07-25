@@ -419,7 +419,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
             }
             handler.obtainMessage(MsgCode.MC_LOGINOK, uid,
                     Constant.CONTACT_STATE_ONLINE).sendToTarget();
-            user.saveUserInfo(userAccount,userNick,userPassword.getText().toString());
+            user.saveUserInfo(String.valueOf(uid),userAccount,userNick,userPassword.getText().toString());
             startActivity(new Intent(mContext,MainActivity.class));
             finish();
             return;

@@ -42,11 +42,12 @@
         </activity>
         <activity
             android:name=".activity.MainActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan" />
 
         <service android:name="com.algebra.sdk.Controller" />
 
-        <activity android:name=".activity.HosterActivity"></activity>
+        <activity android:name=".activity.HosterActivity" />
+        <activity android:name=".activity.StreamingActivity"></activity>
     </application>
 
 </manifest>

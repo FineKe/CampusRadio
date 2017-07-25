@@ -15,6 +15,7 @@ public class User {
     public static final String KeyHasRegistered = "flag_has_registered_bool";
     public static final String KeyIsVisitor = "flag_visitor_bool";
     public static final String KeyAuthCode = "flag_auth_code";
+    public static final String KeyId="flag_user_id";
 
     private Context mContext = null;
     private MySharedPreferences myIO;
@@ -29,7 +30,8 @@ public class User {
         return myIO.Read(KeyAccount);
     }
 
-    public void saveUserInfo(String name, String nick, String pass) {
+    public void saveUserInfo(String id,String name, String nick, String pass) {
+        myIO.Write(KeyId,id);
         myIO.Write(KeyAccount, name);
         myIO.Write(KeyNick, nick);
         myIO.Write(KeyPassword, pass);
@@ -43,6 +45,7 @@ public class User {
         myIO.Remove(KeyHasRegistered);
         myIO.Remove(KeyAccount);
         myIO.Remove(KeyPassword);
+        myIO.Remove(KeyId);
     }
 
     public void setVisitor(boolean yn) {
@@ -59,4 +62,11 @@ public class User {
     {
         return myIO.Read(KeyPassword);
     }
+
+    public String getUserId()
+    {
+        return myIO.Read(KeyId);
+    }
+
+
 }
