@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/base_white"
     tools:context="com.hdu.kefan.campusradio.activity.HosterActivity">
 
     <android.support.constraint.ConstraintLayout
@@ -17,7 +18,7 @@
         android:id="@+id/constraintLayout">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/activity_hoster_imageView_actionBack"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="8dp"
@@ -154,26 +155,27 @@
     </android.support.constraint.ConstraintLayout>
 
     <TextView
+
+        android:paddingTop="8dp"
+        android:paddingLeft="8dp"
+        android:background="@drawable/universal_textview_backgroung"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginTop="8dp"
-        android:elevation="24dp"
-        android:text="主播介绍"
+        android:text="主播介绍:"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
         android:id="@+id/textView3"
-        app:layout_constraintHorizontal_bias="0.0" />
+        />
 
     <LinearLayout
+        android:background="@drawable/universal_textview_backgroung"
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginLeft="0dp"
         android:layout_marginRight="0dp"
-        android:layout_marginTop="0dp"
-        android:elevation="24dp"
-        android:translationZ="20dp"
+        android:layout_marginTop="30dp"
         android:orientation="vertical"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -206,6 +208,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:background="@drawable/universal_textview_backgroung"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginLeft="0dp"

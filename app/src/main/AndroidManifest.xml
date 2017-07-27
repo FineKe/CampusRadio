@@ -47,7 +47,8 @@
         <service android:name="com.algebra.sdk.Controller" />
 
         <activity android:name=".activity.HosterActivity" />
-        <activity android:name=".activity.StreamingActivity"></activity>
+        <activity android:name=".activity.StreamingActivity" />
+        <activity android:name=".activity.OnlineAudiencesActivity"></activity>
     </application>
 
 </manifest>

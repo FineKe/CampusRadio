@@ -2,9 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="90dp"
     android:layout_height="90dp"
-    android:gravity="center">
+    android:gravity="center"
+    android:id="@+id/content_recycler_view_chinnels_linearLayout">
 
     <ImageView
+        android:clickable="false"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
@@ -13,6 +15,7 @@
         android:layout_height="65dp"
         android:background="@drawable/person_picture_cbackground"/>
     <TextView
+        android:clickable="false"
         android:id="@+id/content_recycler_view_chinnels_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

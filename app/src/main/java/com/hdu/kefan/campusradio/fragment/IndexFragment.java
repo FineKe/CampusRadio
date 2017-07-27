@@ -28,6 +28,7 @@ import com.algebra.sdk.entity.Channel;
 import com.algebra.sdk.entity.Contact;
 import com.bumptech.glide.Glide;
 import com.hdu.kefan.campusradio.R;
+import com.hdu.kefan.campusradio.activity.HosterActivity;
 import com.hdu.kefan.campusradio.activity.StreamingActivity;
 
 import java.util.ArrayList;
@@ -45,6 +46,8 @@ import entity.User;
  */
 
 public class IndexFragment extends Fragment implements OnChannelListener{
+    private static final int TYPE_ITEM=0;
+    private static final int TYPE_HEAD=1;
     private static final int OK=0;
     public static Map<String,Integer> classmatesListenerPhotoMap;
     private ScheduledExecutorService scheduledExecutorService;
@@ -141,7 +144,7 @@ public class IndexFragment extends Fragment implements OnChannelListener{
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
 
         GridLayoutManager gridLayoutManager=new GridLayoutManager(getContext(),3);
-//        gridLayoutManager.setSpanCount(3);
+        gridLayoutManager.setSpanCount(3);
 
         recyclerViewChinnels.setLayoutManager(layoutManager);
         recyclerViewChinnels.setAdapter(chinnelsAdapter);
@@ -293,6 +296,12 @@ public class IndexFragment extends Fragment implements OnChannelListener{
         public void onBindViewHolder(MyHolder holder, int position) {
             Glide.with(mContext).load(hosterList.get(position).getMainPhoto()).into(holder.imageView);
             holder.textView.setText(hosterList.get(position).getName());
+            holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(mContext, HosterActivity.class));
+                }
+            });
 
         }
 
@@ -302,11 +311,12 @@ public class IndexFragment extends Fragment implements OnChannelListener{
         }
 
         public class MyHolder extends RecyclerView.ViewHolder
-        {
+        {   private LinearLayout linearLayout;
             private ImageView imageView;
             private TextView textView;
             public MyHolder(View itemView) {
                 super(itemView);
+                linearLayout=itemView.findViewById(R.id.content_recycler_view_chinnels_linearLayout);
                 imageView=itemView.findViewById(R.id.content_recycler_view_chinnels_imageView);
                 textView=itemView.findViewById(R.id.content_recycler_view_chinnels_textView);
             }
@@ -356,6 +366,29 @@ public class IndexFragment extends Fragment implements OnChannelListener{
             for(Map.Entry<String,Integer> entry:classmatesListenerPhotoMap.entrySet())
             {
                 list.add(entry);
+            }
+        }
+
+        @Override
+        public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+            super.onAttachedToRecyclerView(recyclerView);
+            RecyclerView.LayoutManager manager = recyclerView.getLayoutManager();
+            if(manager instanceof GridLayoutManager) {
+                final GridLayoutManager gridManager = ((GridLayoutManager) manager);
+                gridManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                    @Override
+                    public int getSpanSize(int position) {
+                        int type = getItemViewType(position);
+                        switch (type){
+                            case TYPE_HEAD:
+                                return 1;
+                            case TYPE_ITEM:
+                                return 3;
+                            default:
+                                return 3;
+                        }
+                    }
+                });
             }
         }
 
