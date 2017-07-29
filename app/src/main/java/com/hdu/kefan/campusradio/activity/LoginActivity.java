@@ -131,55 +131,58 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     }
 
     public void login(){
-        isLoginPhone=userName.getText().toString().length() == 11;
-        //输入账号登录
-        if (!isLoginPhone) {//如果不是手机号登录
-            if (userName.getText().toString() == null || userName.getText().length() < 5) {
-                Toast.makeText(mContext,mContext.getResources().getString(R.string.need_account), Toast.LENGTH_SHORT).show();
-                return;
-            }
-            else
-            {
-                if (userPassword.getText().toString() == null || userPassword.getText().toString().length() < 4) {
-                    Toast.makeText(mContext,mContext.getResources().getString(R.string.need_passwd), Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                else
-                {
-                    if(accountApi!=null)
-                    {
-                        accountApi.login(userName.getText().toString(),API.md5(userPassword.getText().toString()));
-                    }
-                    else
-                    {
-                        handler.postDelayed(delayInitApi,300);
-                    }
-                }
-            }
-        } else {//如果是手机号登录
-            if (userName.getText().toString() == null || userName.getText().toString().length() != 11) {
-                Toast.makeText(mContext,mContext.getResources().getString(R.string.error_phoneno), Toast.LENGTH_SHORT).show();
-                return;
-            }
-            else
-            {
-                if (userPassword.getText().toString() == null || userPassword.getText().toString().length() < 4) {
-                    Toast.makeText(mContext,mContext.getResources().getString(R.string.need_passwd), Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                else
-                {
-                    if(accountApi!=null)
-                    {
-                        accountApi.loginPhone(userName.getText().toString(),API.md5(userPassword.getText().toString()));
-                    }
-                    else
-                    {
-                        handler.postDelayed(delayInitApi,300);
-                    }
-                }
-            }
-        }
+        startActivity(new Intent(mContext,MainActivity.class));
+        finish();
+        accountApi.loginPhone(userName.getText().toString(),API.md5(userPassword.getText().toString()));
+//        isLoginPhone=userName.getText().toString().length() == 11;
+//        //输入账号登录
+//        if (!isLoginPhone) {//如果不是手机号登录
+//            if (userName.getText().toString() == null || userName.getText().length() < 5) {
+//                Toast.makeText(mContext,mContext.getResources().getString(R.string.need_account), Toast.LENGTH_SHORT).show();
+//                return;
+//            }
+//            else
+//            {
+//                if (userPassword.getText().toString() == null || userPassword.getText().toString().length() < 4) {
+//                    Toast.makeText(mContext,mContext.getResources().getString(R.string.need_passwd), Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//                else
+//                {
+//                    if(accountApi!=null)
+//                    {
+//                        accountApi.login(userName.getText().toString(),API.md5(userPassword.getText().toString()));
+//                    }
+//                    else
+//                    {
+//                        handler.postDelayed(delayInitApi,300);
+//                    }
+//                }
+//            }
+//        } else {//如果是手机号登录
+//            if (userName.getText().toString() == null || userName.getText().toString().length() != 11) {
+//                Toast.makeText(mContext,mContext.getResources().getString(R.string.error_phoneno), Toast.LENGTH_SHORT).show();
+//                return;
+//            }
+//            else
+//            {
+//                if (userPassword.getText().toString() == null || userPassword.getText().toString().length() < 4) {
+//                    Toast.makeText(mContext,mContext.getResources().getString(R.string.need_passwd), Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//                else
+//                {
+//                    if(accountApi!=null)
+//                    {
+//                        accountApi.loginPhone(userName.getText().toString(),API.md5(userPassword.getText().toString()));
+//                    }
+//                    else
+//                    {
+//                        handler.postDelayed(delayInitApi,300);
+//                    }
+//                }
+//            }
+//        }
 
 
     }

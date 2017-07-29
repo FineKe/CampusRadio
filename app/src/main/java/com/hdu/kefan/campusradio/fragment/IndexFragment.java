@@ -144,7 +144,6 @@ public class IndexFragment extends Fragment implements OnChannelListener{
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
 
         GridLayoutManager gridLayoutManager=new GridLayoutManager(getContext(),3);
-        gridLayoutManager.setSpanCount(3);
 
         recyclerViewChinnels.setLayoutManager(layoutManager);
         recyclerViewChinnels.setAdapter(chinnelsAdapter);
@@ -369,28 +368,28 @@ public class IndexFragment extends Fragment implements OnChannelListener{
             }
         }
 
-        @Override
-        public void onAttachedToRecyclerView(RecyclerView recyclerView) {
-            super.onAttachedToRecyclerView(recyclerView);
-            RecyclerView.LayoutManager manager = recyclerView.getLayoutManager();
-            if(manager instanceof GridLayoutManager) {
-                final GridLayoutManager gridManager = ((GridLayoutManager) manager);
-                gridManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-                    @Override
-                    public int getSpanSize(int position) {
-                        int type = getItemViewType(position);
-                        switch (type){
-                            case TYPE_HEAD:
-                                return 1;
-                            case TYPE_ITEM:
-                                return 3;
-                            default:
-                                return 3;
-                        }
-                    }
-                });
-            }
-        }
+//        @Override
+//        public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+//            super.onAttachedToRecyclerView(recyclerView);
+//            RecyclerView.LayoutManager manager = recyclerView.getLayoutManager();
+//            if(manager instanceof GridLayoutManager) {
+//                final GridLayoutManager gridManager = ((GridLayoutManager) manager);
+//                gridManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+//                    @Override
+//                    public int getSpanSize(int position) {
+//                        int type = getItemViewType(position);
+//                        switch (type){
+//                            case TYPE_HEAD:
+//                                return 1;
+//                            case TYPE_ITEM:
+//                                return 3;
+//                            default:
+//                                return 3;
+//                        }
+//                    }
+//                });
+//            }
+//        }
 
         @Override
         public MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {

@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.algebra.sdk.API;
@@ -57,11 +58,15 @@ public class StreamingActivity extends AppCompatActivity implements OnSessionLis
 
     private ArrayList<Integer> waitList = new ArrayList<Integer>();
     private static boolean pttTriggerable = false;
-
+    private static boolean isshow=false;
     private LinearLayout speaking;
+    private LinearLayout showNotice;
     private ImageView settingVolume;
     private ImageView exit;
     private ImageView audiences;
+    private LinearLayout notice;
+    private ImageView imageViewNotice;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,6 +103,7 @@ public class StreamingActivity extends AppCompatActivity implements OnSessionLis
         settingVolume.setOnClickListener(this);
         exit.setOnClickListener(this);
         audiences.setOnClickListener(this);
+        showNotice.setOnClickListener(this);
     }
 
     private void initViews() {
@@ -105,6 +111,9 @@ public class StreamingActivity extends AppCompatActivity implements OnSessionLis
         settingVolume= (ImageView) findViewById(R.id.activity_streaming_imageView_setting_volume);
         exit= (ImageView) findViewById(R.id.activity_streaming_imageView_action_exit);
         audiences= (ImageView) findViewById(R.id.activity_streaming_imageView_audiences);
+        showNotice= (LinearLayout) findViewById(R.id.activity_streaming_linearLayout_show_notice);
+        notice= (LinearLayout) findViewById(R.id.activity_streaming_linearLayout_notice);
+        imageViewNotice= (ImageView) findViewById(R.id.activity_streaming_ImageView_notice);
 
     }
 
@@ -413,7 +422,22 @@ public class StreamingActivity extends AppCompatActivity implements OnSessionLis
             case R.id.activity_streaming_imageView_audiences:
                 startActivity(new Intent(StreamingActivity.this,OnlineAudiencesActivity.class));
                 break;
+            case R.id.activity_streaming_linearLayout_show_notice:
+                if(!isshow)
+                {
+                    notice.setVisibility(View.VISIBLE);
+                    imageViewNotice.setRotation(180);
+                    isshow=true;
+                }
+                else
+                {
+                    notice.setVisibility(View.GONE);
+                    imageViewNotice.setRotation(90);
+                    isshow=false;
+                }
+                break;
         }
 
     }
+
 }

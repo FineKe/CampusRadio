@@ -196,14 +196,15 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginTop="20dp"
                             android:gravity="center"
                             android:orientation="horizontal">
 
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:background="@color/main_color"
-                                android:src="@drawable/bread" />
+                                android:src="@drawable/student_female" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -214,14 +215,15 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginTop="20dp"
                             android:gravity="center"
                             android:orientation="horizontal">
 
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:background="@color/main_color"
-                                android:src="@drawable/bread" />
+                                android:src="@drawable/dumbbell" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -232,14 +234,15 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginTop="20dp"
                             android:gravity="center"
                             android:orientation="horizontal">
 
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:background="@color/main_color"
-                                android:src="@drawable/bread" />
+                                android:src="@drawable/date_man_woman" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -250,13 +253,14 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginTop="20dp"
                             android:gravity="center"
                             android:orientation="horizontal">
 
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:background="@color/main_color"
                                 android:src="@drawable/bread" />
 
                             <TextView
@@ -268,14 +272,15 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginTop="20dp"
                             android:gravity="center"
                             android:orientation="horizontal">
 
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:background="@color/main_color"
-                                android:src="@drawable/bread" />
+                                android:src="@drawable/musical" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -298,14 +303,15 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginTop="20dp"
                             android:gravity="center"
                             android:orientation="horizontal">
 
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:background="@color/main_color"
-                                android:src="@drawable/bread" />
+                                android:src="@drawable/cannabis" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -316,14 +322,15 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginTop="20dp"
                             android:gravity="center"
                             android:orientation="horizontal">
 
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:background="@color/main_color"
-                                android:src="@drawable/bread" />
+                                android:src="@drawable/crown" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -334,13 +341,14 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginTop="20dp"
                             android:gravity="center"
                             android:orientation="horizontal">
 
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:background="@color/main_color"
                                 android:src="@drawable/bread" />
 
                             <TextView
@@ -352,14 +360,15 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginTop="20dp"
                             android:gravity="center"
                             android:orientation="horizontal">
 
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:background="@color/main_color"
-                                android:src="@drawable/bread" />
+                                android:src="@drawable/sun" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -370,14 +379,15 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginTop="20dp"
                             android:gravity="center"
                             android:orientation="horizontal">
 
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:background="@color/main_color"
-                                android:src="@drawable/bread" />
+                                android:src="@drawable/signpost" />
 
                             <TextView
                                 android:layout_width="wrap_content"
