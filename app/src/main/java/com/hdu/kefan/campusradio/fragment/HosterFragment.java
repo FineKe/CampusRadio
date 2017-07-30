@@ -17,6 +17,8 @@ import com.hdu.kefan.campusradio.R;
 
 import org.w3c.dom.Text;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 /**
  * Created by finefine.com on 2017/7/19.
  */
@@ -60,7 +62,7 @@ public class HosterFragment extends Fragment{
         }
 
         public class MyHolder extends RecyclerView.ViewHolder
-        {   private ImageView imageView;
+        {   private CircleImageView imageView;
             private TextView textView;
 
             public MyHolder(View itemView) {

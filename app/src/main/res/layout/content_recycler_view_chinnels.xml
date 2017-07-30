@@ -5,7 +5,7 @@
     android:gravity="center"
     android:id="@+id/content_recycler_view_chinnels_linearLayout">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:clickable="false"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="5dp"

@@ -25,6 +25,7 @@
         tools:layout_constraintTop_creator="1" />
 
     <ImageView
+        android:id="@+id/fragment_collection_title_bar_imageView"
         android:layout_width="40dp"
         android:layout_height="30dp"
         android:src="@mipmap/audio_wave"

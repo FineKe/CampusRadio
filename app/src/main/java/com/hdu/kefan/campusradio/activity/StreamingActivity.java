@@ -436,6 +436,9 @@ public class StreamingActivity extends AppCompatActivity implements OnSessionLis
                     isshow=false;
                 }
                 break;
+            case R.id.activity_streaming_imageView_action_exit:
+                finish();
+                break;
         }
 
     }

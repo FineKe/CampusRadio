@@ -39,6 +39,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import entity.User;
 
 /**
@@ -300,13 +301,16 @@ public class IndexFragment extends Fragment implements OnChannelListener{
         }
 
         @Override
-        public void onBindViewHolder(MyHolder holder, int position) {
+        public void onBindViewHolder(MyHolder holder, final int position) {
             Glide.with(mContext).load(hosterList.get(position).getMainPhoto()).into(holder.imageView);
             holder.textView.setText(hosterList.get(position).getName());
             holder.linearLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    startActivity(new Intent(mContext, HosterActivity.class));
+                    Intent intent=new Intent(mContext,HosterActivity.class);
+                    intent.putExtra("name",hosterList.get(position).getName());
+                    intent.putExtra("mainPhoto",hosterList.get(position).getMainPhoto());
+                    startActivity(intent);
                 }
             });
 
@@ -319,7 +323,7 @@ public class IndexFragment extends Fragment implements OnChannelListener{
 
         public class MyHolder extends RecyclerView.ViewHolder
         {   private LinearLayout linearLayout;
-            private ImageView imageView;
+            private CircleImageView imageView;
             private TextView textView;
             public MyHolder(View itemView) {
                 super(itemView);

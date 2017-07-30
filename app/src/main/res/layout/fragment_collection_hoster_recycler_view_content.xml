@@ -11,7 +11,7 @@
         android:layout_height="79dp"
         android:orientation="horizontal">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/fragment_collection_hoster_recyclerView_view_content_imageView"
             android:layout_marginLeft="5dp"
             android:layout_width="65dp"

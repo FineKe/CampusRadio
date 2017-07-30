@@ -1,6 +1,7 @@
 package com.hdu.kefan.campusradio.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hdu.kefan.campusradio.R;
+import com.hdu.kefan.campusradio.activity.StreamingActivity;
 
 import java.util.List;
 
@@ -37,6 +39,8 @@ public class CollectionFragment extends Fragment implements View.OnClickListener
     private ImageView imageView1;
     private ImageView imageView2;
 
+    private ImageView listening;
+
 
     @Nullable
     @Override
@@ -47,6 +51,7 @@ public class CollectionFragment extends Fragment implements View.OnClickListener
         textView2=view.findViewById(R.id.fragment_collection_textView2);
         imageView1=view.findViewById(R.id.fragment_collection_imageView1);
         imageView2=view.findViewById(R.id.fragment_collection_imageView2);
+        listening=view.findViewById(R.id.fragment_collection_title_bar_imageView);
 
         textView1.setOnClickListener(this);
         textView2.setOnClickListener(this);
@@ -62,6 +67,12 @@ public class CollectionFragment extends Fragment implements View.OnClickListener
         }
         fragmentTransaction.replace(R.id.fragment_collection_frameLayout,channelFragment).commit();
 
+        listening.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), StreamingActivity.class));
+            }
+        });
 
         return view;
     }
