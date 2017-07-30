@@ -20,10 +20,12 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/imageView8"
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:layout_marginLeft="7.5dp"
-            android:background="@drawable/person_picture_cbackground" />
+            android:background="@drawable/person_picture_cbackground"
+            android:src="@drawable/hoster_xiaoliu"/>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -35,18 +37,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:orientation="horizontal">
 
                 <TextView
+                    android:paddingLeft="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="用户昵称"
+                    android:text="小六"
                     android:textSize="20sp" />
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp" />
+                <!--<ImageView-->
+                    <!--android:layout_width="20dp"-->
+                    <!--android:layout_height="20dp" />-->
 
             </LinearLayout>
 
@@ -58,16 +61,17 @@
                 android:gravity="bottom"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="个性签名:"
-                    android:textSize="16sp" />
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="个性签名:"-->
+                    <!--android:textSize="16sp" />-->
 
                 <TextView
+                    android:layout_marginLeft="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="明月几时有"
+                    android:text="一只咸鱼突然失去了梦想"
                     android:textSize="16sp" />
             </LinearLayout>
 
@@ -91,11 +95,13 @@
         android:layout_height="wrap_content" />
 
     <LinearLayout
+
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <LinearLayout
+            android:paddingBottom="5dp"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -122,6 +128,7 @@
             android:layout_height="match_parent" />
 
         <LinearLayout
+            android:paddingBottom="5dp"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -149,6 +156,7 @@
 
 
         <LinearLayout
+            android:paddingBottom="5dp"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -232,6 +240,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <include layout="@layout/spilt_line"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <LinearLayout
         android:gravity="center_vertical"
         android:layout_width="match_parent"
@@ -247,7 +260,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp"
-            android:text="创建新频道"/>
+            android:text="创建频道"/>
 
     </LinearLayout>
 
@@ -275,7 +288,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp"
-            android:text="访问过的频道"/>
+            android:text="历史频道"/>
 
     </LinearLayout>
 

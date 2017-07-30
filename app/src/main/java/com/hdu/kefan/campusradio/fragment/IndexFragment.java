@@ -53,7 +53,7 @@ public class IndexFragment extends Fragment implements OnChannelListener{
     private ScheduledExecutorService scheduledExecutorService;
 
     private List<View> viewList;
-    private int viewsId[]={R.drawable.adv_one,R.drawable.adv_two,R.drawable.adv_three};
+    private int viewsId[]={R.drawable.adv_three,R.drawable.adv_two,R.drawable.adv_one};
 
     private RecyclerView recyclerViewChinnels;
     private RecyclerView recyclerViewClassmatesListening;
@@ -62,6 +62,7 @@ public class IndexFragment extends Fragment implements OnChannelListener{
     private RecyclerViewChinnelsAdapter chinnelsAdapter;
 
     private MyViewPagerAdapter pagerAdapter;
+    private ImageView listening;
 
 
     private int currentIndex=0;
@@ -121,13 +122,14 @@ public class IndexFragment extends Fragment implements OnChannelListener{
         recyclerViewChinnels=view.findViewById(R.id.fragment_index_recyclerView_chinnels);
         recyclerViewClassmatesListening=view.findViewById(R.id.fragment_index_recyclerView_classmates_listening);
         viewPager=view.findViewById(R.id.fragment_index_viewPager);
+        listening=view.findViewById(R.id.fragment_index_title_bar_listening);
 
         List<Hoster> hosters=new ArrayList<>();
 
-        int hosterMainPhoto[]={R.drawable.hoster_one,R.drawable.hoster_two,R.drawable.hoster_three,R.drawable.hoster_four,
-                R.drawable.hoster_five};
+        int hosterMainPhoto[]={R.drawable.hoster_one,R.drawable.hoster_five,R.drawable.hoster_two,R.drawable.hoster_four
+                ,R.drawable.hoster_three,};
 
-        String hosterName[]={"橘络feel","反派官方播客","你若安好","LARRY.Z","Ceciling"};
+        String hosterName[]={"橘络feel","Ceciling","反派官方播客","LARRY.Z","你若安好"};
 
         for(int i=0;i<5;i++)
         {
@@ -153,6 +155,12 @@ public class IndexFragment extends Fragment implements OnChannelListener{
 
         recyclerViewClassmatesListening.setLayoutManager(gridLayoutManager);
         recyclerViewClassmatesListening.setAdapter(new RecyclerViewClassmatesListenseAdapter());
+        listening.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), StreamingActivity.class));
+            }
+        });
 
         return view;
     }

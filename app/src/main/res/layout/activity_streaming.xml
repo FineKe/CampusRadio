@@ -21,7 +21,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
             android:src="@drawable/action_cancel"
             app:layout_constraintRight_toRightOf="parent"
@@ -34,10 +34,9 @@
             app:layout_constraintRight_toLeftOf="@+id/activity_streaming_imageView_action_exit"
             android:layout_marginRight="16dp"
             app:layout_constraintBottom_toBottomOf="@+id/activity_streaming_imageView_action_exit"
-            android:layout_marginBottom="0dp"
             app:layout_constraintTop_toTopOf="@+id/activity_streaming_imageView_action_exit"
-            android:layout_marginTop="0dp"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            android:layout_marginEnd="16dp" />
 
         <ImageView
             android:id="@+id/activity_streaming_imageView_audiences"
@@ -50,7 +49,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.36" />
+            app:layout_constraintVertical_bias="0.36"
+            android:layout_marginEnd="16dp" />
 
         <View
             android:layout_width="0dp"
@@ -81,8 +81,7 @@
             app:layout_constraintTop_toTopOf="@+id/imageView7"
             android:orientation="vertical"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintVertical_bias="0.5">
+            android:layout_marginEnd="8dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -143,7 +142,8 @@
             android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent">
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginEnd="8dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -174,8 +174,8 @@
         android:visibility="gone"
         android:gravity="center"
         android:background="#e18e91"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
@@ -237,9 +237,6 @@
         android:background="@color/main_color"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -258,8 +255,7 @@
             android:layout_marginTop="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="8dp"
-            tools:layout_editor_absoluteY="44dp"
-            tools:layout_editor_absoluteX="318dp" />
+            android:layout_marginEnd="24dp" />
 
         <LinearLayout
             android:id="@+id/activity_streaming_linearLayout_speaking"
@@ -275,7 +271,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="8dp"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp">
 
             <ImageView
                 android:clickable="false"
@@ -302,7 +300,8 @@
             android:layout_marginTop="8dp"
             android:id="@+id/activity_streaming_imageView_setting_volume"
             app:layout_constraintLeft_toRightOf="@+id/imageView9"
-            android:layout_marginLeft="24dp" />
+            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp" />
         
         <ImageView
             android:layout_width="30dp"
@@ -314,8 +313,8 @@
             app:layout_constraintBottom_toBottomOf="@+id/activity_streaming_imageView_setting_volume"
             android:layout_marginBottom="8dp"
             app:layout_constraintTop_toTopOf="@+id/activity_streaming_imageView_setting_volume"
-            android:layout_marginTop="0dp"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            android:layout_marginStart="16dp" />
 
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

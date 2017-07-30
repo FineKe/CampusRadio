@@ -21,6 +21,7 @@
         />
 
     <ImageView
+        android:id="@+id/fragment_index_title_bar_listening"
         android:layout_width="40dp"
         android:layout_height="30dp"
         android:src="@mipmap/audio_wave"

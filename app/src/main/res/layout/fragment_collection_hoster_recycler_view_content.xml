@@ -12,12 +12,14 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/fragment_collection_hoster_recyclerView_view_content_imageView"
             android:layout_marginLeft="5dp"
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:background="@drawable/person_picture_cbackground"/>
 
         <TextView
+            android:id="@+id/fragment_collection_hoster_recyclerView_view_content_textView_name"
             android:layout_marginLeft="10dp"
             android:layout_width="0dp"
             android:layout_weight="1"
