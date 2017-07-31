@@ -3,7 +3,6 @@ package com.hdu.kefan.campusradio.fragment;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -71,6 +70,8 @@ public class IndexFragment extends Fragment implements OnChannelListener{
     private ChannelApi channelApi=null;
     private User user;
 
+    private List<MutableViews> mutableViewses;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -112,7 +113,53 @@ public class IndexFragment extends Fragment implements OnChannelListener{
         classmatesListenerPhotoMap.put("FM147859臟言脏吾",R.drawable.broadcast_twenthy_four);
         classmatesListenerPhotoMap.put("FM251301经典文学名著",R.drawable.broadcast_twenthyfive);
 
+        mutableViewses=new ArrayList<>();
 
+        MutableViews mutableViews=new MutableViews();
+        mutableViews.setType(TYPE_HEAD);
+        mutableViewses.add(mutableViews);
+
+
+        for(Map.Entry<String,Integer> entry:classmatesListenerPhotoMap.entrySet())
+        {
+            MutableViews mutableViews1=new MutableViews();
+            mutableViews1.setType(TYPE_ITEM);
+            mutableViews1.setName(entry.getKey());
+            mutableViews1.setMainPhtoto(entry.getValue());
+            mutableViewses.add(mutableViews1);
+        }
+
+    }
+
+    public class MutableViews
+    {
+        private int type;
+        private String name;
+        private int mainPhtoto;
+
+        public int getType() {
+            return type;
+        }
+
+        public void setType(int type) {
+            this.type = type;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public int getMainPhtoto() {
+            return mainPhtoto;
+        }
+
+        public void setMainPhtoto(int mainPhtoto) {
+            this.mainPhtoto = mainPhtoto;
+        }
     }
 
     @Nullable
@@ -122,7 +169,7 @@ public class IndexFragment extends Fragment implements OnChannelListener{
 
         recyclerViewChinnels=view.findViewById(R.id.fragment_index_recyclerView_chinnels);
         recyclerViewClassmatesListening=view.findViewById(R.id.fragment_index_recyclerView_classmates_listening);
-        viewPager=view.findViewById(R.id.fragment_index_viewPager);
+//        viewPager=view.findViewById(R.id.fragment_index_viewPager_one);
         listening=view.findViewById(R.id.fragment_index_title_bar_listening);
 
         List<Hoster> hosters=new ArrayList<>();
@@ -152,10 +199,10 @@ public class IndexFragment extends Fragment implements OnChannelListener{
         recyclerViewChinnels.setAdapter(chinnelsAdapter);
         createAdvViews();
         pagerAdapter=new MyViewPagerAdapter(viewList);
-        viewPager.setAdapter(pagerAdapter);
+//        viewPager.setAdapter(pagerAdapter);
 
         recyclerViewClassmatesListening.setLayoutManager(gridLayoutManager);
-        recyclerViewClassmatesListening.setAdapter(new RecyclerViewClassmatesListenseAdapter());
+        recyclerViewClassmatesListening.setAdapter(new RecyclerViewClassmatesListenseAdapter(mutableViewses));
         listening.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -172,9 +219,9 @@ public class IndexFragment extends Fragment implements OnChannelListener{
         super.onResume();
         scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
         scheduledExecutorService.scheduleWithFixedDelay(new ViewPagerTask(), 3, 3, TimeUnit.SECONDS);
-
-//        channelApi.adverChannelsGet(Integer.valueOf(user.getUserId()));
-        channelApi.adverChannelsGet(4850);
+//
+////        channelApi.adverChannelsGet(Integer.valueOf(user.getUserId()));
+//        channelApi.adverChannelsGet(4850);
     }
 
     @Override
@@ -368,63 +415,110 @@ public class IndexFragment extends Fragment implements OnChannelListener{
     }
 
 
-    public class RecyclerViewClassmatesListenseAdapter extends RecyclerView.Adapter<RecyclerViewClassmatesListenseAdapter.MyHolder>
+    public class RecyclerViewClassmatesListenseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     {
-        List<Map.Entry<String,Integer>> list;
+       List<MutableViews> mutableViewses;
 
-        public RecyclerViewClassmatesListenseAdapter() {
-            list=new ArrayList<>();
-            for(Map.Entry<String,Integer> entry:classmatesListenerPhotoMap.entrySet())
-            {
-                list.add(entry);
+        public RecyclerViewClassmatesListenseAdapter(List<MutableViews> mutableViewses) {
+            this.mutableViewses = mutableViewses;
+        }
+
+        @Override
+        public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+            super.onAttachedToRecyclerView(recyclerView);
+            RecyclerView.LayoutManager manager = recyclerView.getLayoutManager();
+            if(manager instanceof GridLayoutManager) {
+                final GridLayoutManager gridManager = ((GridLayoutManager) manager);
+                gridManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                    @Override
+                    public int getSpanSize(int position) {
+                        int type = getItemViewType(position);
+                        switch (type){
+                            case TYPE_HEAD:
+                                return 3;
+                            case TYPE_ITEM:
+                                return 1;
+                            default:
+                                return 1;
+                        }
+                    }
+                });
             }
         }
 
-//        @Override
-//        public void onAttachedToRecyclerView(RecyclerView recyclerView) {
-//            super.onAttachedToRecyclerView(recyclerView);
-//            RecyclerView.LayoutManager manager = recyclerView.getLayoutManager();
-//            if(manager instanceof GridLayoutManager) {
-//                final GridLayoutManager gridManager = ((GridLayoutManager) manager);
-//                gridManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-//                    @Override
-//                    public int getSpanSize(int position) {
-//                        int type = getItemViewType(position);
-//                        switch (type){
-//                            case TYPE_HEAD:
-//                                return 1;
-//                            case TYPE_ITEM:
-//                                return 3;
-//                            default:
-//                                return 3;
-//                        }
-//                    }
-//                });
-//            }
-//        }
-
         @Override
-        public MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_index_recycle_view_classmates_listening_content,null);
-            return new MyHolder(view);
+        public int getItemViewType(int position) {
+            return  mutableViewses.get(position).getType();
         }
 
         @Override
-        public void onBindViewHolder(MyHolder holder, int position) {
-//            holder.imageView.setImageResource(list.get(position).getValue());
-            Glide.with(getContext()).load(list.get(position).getValue()).into(holder.imageView);
-            holder.textView.setText(list.get(position).getKey());
-            holder.linearLayout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    startActivity(new Intent(getContext(), StreamingActivity.class));
-                }
-            });
+        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+            if (viewType==TYPE_HEAD)
+            {
+                View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_index_viewpager,null);
+                return new ViewPagerHolder(view);
+            }else
+            {
+                View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_index_recycle_view_classmates_listening_content,null);
+                return new MyHolder(view);
+            }
+
+
+        }
+
+        @Override
+        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+            if(holder instanceof MyHolder)
+            {   MyHolder myHolder= (MyHolder) holder;
+                Glide.with(getContext()).load(mutableViewses.get(position).getMainPhtoto()).into(myHolder.imageView);
+                myHolder.textView.setText(mutableViewses.get(position).getName());
+                myHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(getContext(), StreamingActivity.class));
+                    }
+                });
+            }
+            else
+            {
+                final ViewPagerHolder viewPagerHolder= (ViewPagerHolder) holder;
+                viewPagerHolder.viewPagerInner.setAdapter(pagerAdapter);
+                viewPagerHolder.viewPagerInner.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                    @Override
+                    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                        switch (position)
+                        {
+                            case 0:viewPagerHolder.imageView.setImageResource(R.drawable.point_one);
+                                currentIndex=position;
+                                break;
+                            case 1:viewPagerHolder.imageView.setImageResource(R.drawable.point_two);
+                                currentIndex=position;
+                                break;
+                            case 2:viewPagerHolder.imageView.setImageResource(R.drawable.point_three);
+                                currentIndex=position;
+                                break;
+                        }
+                    }
+
+                    @Override
+                    public void onPageSelected(int position) {
+
+                    }
+
+                    @Override
+                    public void onPageScrollStateChanged(int state) {
+
+                    }
+                });
+            }
+
+
         }
 
         @Override
         public int getItemCount() {
-            return list.size();
+            return mutableViewses.size();
         }
 
         public class MyHolder extends RecyclerView.ViewHolder
@@ -436,6 +530,18 @@ public class IndexFragment extends Fragment implements OnChannelListener{
                 imageView=itemView.findViewById(R.id.fragment_index_recyclerView_classmates_listening_imageView);
                 textView=itemView.findViewById(R.id.fragment_index_recyclerView_classmates_listening_textView);
                 linearLayout=itemView.findViewById(R.id.fragment_index_recyclerView_classmates_listening_linearLayout);
+            }
+        }
+
+        public class ViewPagerHolder extends RecyclerView.ViewHolder
+        {   private ViewPager viewPagerInner;
+            private ImageView imageView;
+
+            public ViewPagerHolder(View itemView) {
+                super(itemView);
+                viewPagerInner=itemView.findViewById(R.id.fragment_index_viewPager_one);
+                viewPager=viewPagerInner;
+                imageView=itemView.findViewById(R.id.fragment_index_imageView_point);
             }
         }
     }
