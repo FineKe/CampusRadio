@@ -7,6 +7,7 @@ import android.media.AudioManager;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.ContactsContract;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,11 +29,16 @@ import com.algebra.sdk.entity.CompactID;
 import com.algebra.sdk.entity.Constant;
 import com.algebra.sdk.entity.Contact;
 import com.algebra.sdk.entity.HistoryRecord;
+import com.bumptech.glide.Glide;
 import com.hdu.kefan.campusradio.R;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import entity.MsgCode;
 import entity.TalkHistory;
 
@@ -66,6 +72,11 @@ public class StreamingActivity extends AppCompatActivity implements OnSessionLis
     private ImageView audiences;
     private LinearLayout notice;
     private ImageView imageViewNotice;
+    private CircleImageView mainPhoto;
+    private TextView chinnelName;
+    private TextView chinnelNumber;
+    private TextView online;
+    private ImageView share;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,12 +109,33 @@ public class StreamingActivity extends AppCompatActivity implements OnSessionLis
 
     }
 
+    public String[] split(String string)
+    {
+
+        int index=0;
+        for(int i=2;i<string.length();i++)
+        {
+            if(!('0'<string.charAt(i)&&string.charAt(i)<'9'))
+            {
+                index=i;
+                break;
+            }
+        }
+
+        String FM=string.substring(0,index);
+        String name=string.substring(index);
+        String s[]={FM,name};
+
+        return s;
+    }
+
     private void initEvents() {
         speaking.setOnTouchListener(this);
         settingVolume.setOnClickListener(this);
         exit.setOnClickListener(this);
         audiences.setOnClickListener(this);
         showNotice.setOnClickListener(this);
+        share.setOnClickListener(this);
     }
 
     private void initViews() {
@@ -114,7 +146,25 @@ public class StreamingActivity extends AppCompatActivity implements OnSessionLis
         showNotice= (LinearLayout) findViewById(R.id.activity_streaming_linearLayout_show_notice);
         notice= (LinearLayout) findViewById(R.id.activity_streaming_linearLayout_notice);
         imageViewNotice= (ImageView) findViewById(R.id.activity_streaming_ImageView_notice);
+        mainPhoto= (CircleImageView) findViewById(R.id.acitivity_streaming_circleImageView_mainPhoto);
+        chinnelName= (TextView) findViewById(R.id.acitivity_streaming_textView_chinnel_name);
+        chinnelNumber= (TextView) findViewById(R.id.activity_streaming_textView_channels_number);
+        online= (TextView) findViewById(R.id.activity_streaming_textView_online);
+        share= (ImageView) findViewById(R.id.activity_streaming_imageView_share);
 
+        Glide.with(this).load(getIntent().getIntExtra("mainPhoto",0)).into(mainPhoto);
+        String [] strings=split(getIntent().getStringExtra("name"));
+        chinnelName.setText(strings[1]);
+        chinnelNumber.setText(strings[0]);
+        online.setText(randNumber()+"人在线");
+
+    }
+
+    public int randNumber()
+    {
+        Random random=new Random(System.currentTimeMillis());
+        int num =random.nextInt(1000);
+        return num;
     }
 
 
@@ -439,8 +489,21 @@ public class StreamingActivity extends AppCompatActivity implements OnSessionLis
             case R.id.activity_streaming_imageView_action_exit:
                 finish();
                 break;
+
+            case R.id.activity_streaming_imageView_share:
+                share();
+                break;
         }
 
+    }
+
+    public void share()
+    {
+        Intent intent=new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_SUBJECT,"分享");
+        intent.putExtra(Intent.EXTRA_TEXT,"我正在收听"+chinnelName.getText().toString()+"的广播，快一起来听吧");
+        startActivity(Intent.createChooser(intent,"分享到"));
     }
 
 }

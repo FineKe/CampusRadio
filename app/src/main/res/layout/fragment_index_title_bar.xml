@@ -13,7 +13,9 @@
         android:src="@mipmap/qr_scan"
         android:layout_marginLeft="8dp"/>
 
-    <include layout="@layout/search_view"
+    <include
+        layout="@layout/search_view_false"
+        android:id="@+id/fragment_inde_title_bar_search_false"
         android:layout_marginLeft="4dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

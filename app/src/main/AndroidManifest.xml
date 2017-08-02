@@ -48,7 +48,8 @@
 
         <activity android:name=".activity.HosterActivity" />
         <activity android:name=".activity.StreamingActivity" />
-        <activity android:name=".activity.OnlineAudiencesActivity"></activity>
+        <activity android:name=".activity.OnlineAudiencesActivity" />
+        <activity android:name=".activity.SearchActivity"></activity>
     </application>
 
 </manifest>

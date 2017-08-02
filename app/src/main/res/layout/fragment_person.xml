@@ -328,6 +328,7 @@
 
 
     <TextView
+        android:id="@+id/fragment_person_textView_logOut"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="50dp"

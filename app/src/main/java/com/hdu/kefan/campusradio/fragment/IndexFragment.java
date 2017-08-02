@@ -28,6 +28,7 @@ import com.algebra.sdk.entity.Contact;
 import com.bumptech.glide.Glide;
 import com.hdu.kefan.campusradio.R;
 import com.hdu.kefan.campusradio.activity.HosterActivity;
+import com.hdu.kefan.campusradio.activity.SearchActivity;
 import com.hdu.kefan.campusradio.activity.StreamingActivity;
 
 import java.util.ArrayList;
@@ -63,7 +64,7 @@ public class IndexFragment extends Fragment implements OnChannelListener{
 
     private MyViewPagerAdapter pagerAdapter;
     private ImageView listening;
-
+    private View serach;
 
     private int currentIndex=0;
 
@@ -112,7 +113,6 @@ public class IndexFragment extends Fragment implements OnChannelListener{
         classmatesListenerPhotoMap.put("FM1363758韩系清凉小纯音",R.drawable.broadcast_twenthy_three);
         classmatesListenerPhotoMap.put("FM147859臟言脏吾",R.drawable.broadcast_twenthy_four);
         classmatesListenerPhotoMap.put("FM251301经典文学名著",R.drawable.broadcast_twenthyfive);
-
         mutableViewses=new ArrayList<>();
 
         MutableViews mutableViews=new MutableViews();
@@ -171,7 +171,7 @@ public class IndexFragment extends Fragment implements OnChannelListener{
         recyclerViewClassmatesListening=view.findViewById(R.id.fragment_index_recyclerView_classmates_listening);
 //        viewPager=view.findViewById(R.id.fragment_index_viewPager_one);
         listening=view.findViewById(R.id.fragment_index_title_bar_listening);
-
+        serach=view.findViewById(R.id.fragment_inde_title_bar_search_false);
         List<Hoster> hosters=new ArrayList<>();
 
         int hosterMainPhoto[]={R.drawable.hoster_one,R.drawable.hoster_five,R.drawable.hoster_two,R.drawable.hoster_four
@@ -210,6 +210,12 @@ public class IndexFragment extends Fragment implements OnChannelListener{
             }
         });
 
+        serach.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), SearchActivity.class));
+            }
+        });
         return view;
     }
 
@@ -468,7 +474,7 @@ public class IndexFragment extends Fragment implements OnChannelListener{
         }
 
         @Override
-        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
             if(holder instanceof MyHolder)
             {   MyHolder myHolder= (MyHolder) holder;
                 Glide.with(getContext()).load(mutableViewses.get(position).getMainPhtoto()).into(myHolder.imageView);
@@ -476,7 +482,13 @@ public class IndexFragment extends Fragment implements OnChannelListener{
                 myHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        startActivity(new Intent(getContext(), StreamingActivity.class));
+
+
+                        Intent intent=new Intent(getContext(),StreamingActivity.class);
+                        intent.putExtra("mainPhoto",mutableViewses.get(position).getMainPhtoto());
+                        intent.putExtra("name",mutableViewses.get(position).getName());
+                        startActivity(intent);
+//                        startActivity(new Intent(getContext(), StreamingActivity.class));
                     }
                 });
             }
