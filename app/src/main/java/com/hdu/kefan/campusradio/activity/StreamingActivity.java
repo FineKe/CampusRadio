@@ -77,6 +77,9 @@ public class StreamingActivity extends AppCompatActivity implements OnSessionLis
     private TextView chinnelNumber;
     private TextView online;
     private ImageView share;
+    private ImageView heart;
+
+    private boolean isHeart=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,6 +139,7 @@ public class StreamingActivity extends AppCompatActivity implements OnSessionLis
         audiences.setOnClickListener(this);
         showNotice.setOnClickListener(this);
         share.setOnClickListener(this);
+        heart.setOnClickListener(this);
     }
 
     private void initViews() {
@@ -151,6 +155,7 @@ public class StreamingActivity extends AppCompatActivity implements OnSessionLis
         chinnelNumber= (TextView) findViewById(R.id.activity_streaming_textView_channels_number);
         online= (TextView) findViewById(R.id.activity_streaming_textView_online);
         share= (ImageView) findViewById(R.id.activity_streaming_imageView_share);
+        heart= (ImageView) findViewById(R.id.activity_streaming_imageView_heart);
 
         Glide.with(this).load(getIntent().getIntExtra("mainPhoto",0)).into(mainPhoto);
         String [] strings=split(getIntent().getStringExtra("name"));
@@ -492,6 +497,22 @@ public class StreamingActivity extends AppCompatActivity implements OnSessionLis
 
             case R.id.activity_streaming_imageView_share:
                 share();
+                break;
+            case R.id.activity_streaming_imageView_heart:
+
+                if (!isHeart)
+                {
+                    isHeart=true;
+                    heart.setImageResource(R.drawable.heart_pressed);
+
+                }
+                else
+                {
+                    isHeart=false;
+                    heart.setImageResource(R.drawable.heart_normal);
+
+                }
+
                 break;
         }
 

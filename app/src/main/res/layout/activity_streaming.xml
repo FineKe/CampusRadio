@@ -171,9 +171,10 @@
         </LinearLayout>
 
         <ImageView
+            android:id="@+id/activity_streaming_imageView_heart"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@mipmap/heart"
+            android:src="@drawable/heart_normal"
             app:layout_constraintLeft_toRightOf="@+id/activity_streaming_textView_channels_number"
             android:layout_marginLeft="8dp"
             app:layout_constraintBottom_toBottomOf="@+id/activity_streaming_textView_channels_number"
